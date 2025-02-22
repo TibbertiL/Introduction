@@ -34,10 +34,18 @@ public class FirstSteps {
     }
 
     public int sum(int[] array){
+        if(array == null){
+            throw new IllegalArgumentException("Передан null вместо массива.");
+        }
+
         return array.length == 0 ? 0 : Arrays.stream(array).sum();
     }
 
     public int mul(int[] array){
+        if(array == null){
+            throw new IllegalArgumentException("Передан null вместо массива.");
+        }
+
         int mul = 1;
         for (int i : array){
             mul *= i;
@@ -46,18 +54,34 @@ public class FirstSteps {
     }
 
     public int min(int[] array){
+        if(array == null){
+            throw new IllegalArgumentException("Передан null вместо массива.");
+        }
+
         return array.length == 0 ? Integer.MAX_VALUE : Arrays.stream(array).min().getAsInt();
     }
 
     public int max(int[] array){
+        if(array == null){
+            throw new IllegalArgumentException("Передан null вместо массива.");
+        }
+
         return array.length == 0 ? Integer.MIN_VALUE : Arrays.stream(array).max().getAsInt();
     }
 
     public double average(int[] array){
+        if(array == null){
+            throw new IllegalArgumentException("Передан null вместо массива.");
+        }
+
         return array.length == 0 ? 0 : Arrays.stream(array).average().getAsDouble();
     }
 
     public boolean isSortedDescendant(int[] array){
+        if(array == null){
+            throw new IllegalArgumentException("Передан null вместо массива.");
+        }
+
         int[] sortedArray = Arrays.stream(array).boxed()
                 .sorted(Collections.reverseOrder())
                 .mapToInt(Integer::intValue).toArray();
@@ -65,15 +89,27 @@ public class FirstSteps {
     }
 
     public void cube(int[]array){
+        if(array == null){
+            throw new IllegalArgumentException("Передан null вместо массива.");
+        }
+
         array = Arrays.stream(array).map(x ->(int) Math.pow(x,3)).toArray();
     }
 
     public boolean find(int[]array, int value){
+        if(array == null){
+            throw new IllegalArgumentException("Передан null вместо массива.");
+        }
+
         return Arrays.asList(Arrays.stream(array).boxed().
                 toArray()).contains(value);
     }
 
     public void reverse(int[]array) {
+        if(array == null){
+            throw new IllegalArgumentException("Передан null вместо массива.");
+        }
+
         array = Arrays.stream(array).boxed()
                 .sorted(Collections.reverseOrder())
                 .mapToInt(Integer::intValue).
@@ -81,6 +117,10 @@ public class FirstSteps {
     }
 
     public boolean isPalindrome(int[]array){
+        if(array == null){
+            throw new IllegalArgumentException("Передан null вместо массива.");
+        }
+
         int[] reversed = new int[array.length];
         for (int i = 0; i < array.length; i++) {
             reversed[i] = array[array.length - 1 - i];
@@ -89,6 +129,10 @@ public class FirstSteps {
     }
 
     public int sum(int[][] matrix){
+        if(matrix == null){
+            throw new IllegalArgumentException("Передан null вместо массива.");
+        }
+
         int sum = 0;
         for(int[] i : matrix){
             sum += Arrays.stream(i).sum();
@@ -97,6 +141,10 @@ public class FirstSteps {
     }
 
     public int max(int[][] matrix){
+        if(matrix == null){
+            throw new IllegalArgumentException("Передан null вместо массива.");
+        }
+
         int max = 0;
         for(int[] i : matrix){
             max = Math.max(Arrays.stream(i).max().getAsInt(), max);
@@ -105,6 +153,10 @@ public class FirstSteps {
     }
 
     public int diagonalMax(int[][] matrix){
+        if(matrix == null){
+            throw new IllegalArgumentException("Передан null вместо массива.");
+        }
+
         int max = 0;
         for (int i = 0; i < matrix.length; i++) {
             max = Math.max(matrix[i][i], max);
@@ -113,6 +165,10 @@ public class FirstSteps {
     }
 
     public boolean isSortedDescendant(int[][] matrix){
+        if(matrix == null){
+            throw new IllegalArgumentException("Передан null вместо массива.");
+        }
+
         boolean result = false;
         for (int[] i : matrix){
             result = isSortedDescendant(i);
