@@ -154,7 +154,6 @@ public class FirstSteps {
         if (array.length == 0) {
             return true;
         }
-
         for (int i = 0; i < array.length / 2; i++) {
             if (array[i] != array[array.length - 1 - i]) {
                 return false;
@@ -180,6 +179,8 @@ public class FirstSteps {
             throw new IllegalArgumentException("Передан null вместо массива.");
         }
 
+        if (matrix.length == 0 || matrix[0].length == 0) return Integer.MIN_VALUE;
+
         int max = Integer.MIN_VALUE;
         for (int[] row : matrix) {
             int rowMax = max(row);
@@ -195,6 +196,8 @@ public class FirstSteps {
             throw new IllegalArgumentException("Передан null вместо массива.");
         }
 
+        if(matrix.length == 0 || matrix[0].length == 0) return Integer.MIN_VALUE;
+
         int max = Integer.MIN_VALUE;
         for (int i = 0; i < matrix.length; i++) {
             if (matrix[i][i] > max) {
@@ -209,12 +212,11 @@ public class FirstSteps {
             throw new IllegalArgumentException("Передан null вместо массива.");
         }
 
-        boolean result = false;
         for (int[] i : matrix){
             if (!isSortedDescendant(i)) {
                 return false;
             }
         }
-        return result;
+        return true;
     }
 }
