@@ -69,17 +69,11 @@ public class FirstSteps {
     }
 
     public int max(int[] array){
-        if(array == null){
-            throw new IllegalArgumentException("Передан null вместо массива.");
-        }
-
         int max = Integer.MIN_VALUE;
-        for(int i : array){
-            if (max < i){
-                max = i;
-            }
+        for(int num : array)  {
+            if(num > max) max = num;
         }
-        return array.length == 0 ? Integer.MAX_VALUE : max;
+        return max;
     }
 
     public double average(int[] array){
@@ -96,14 +90,10 @@ public class FirstSteps {
     }
 
     public boolean isSortedDescendant(int[] array){
-        if(array == null){
-            throw new IllegalArgumentException("Передан null вместо массива.");
-        }
-        if (array.length < 2) {
-            return true;
-        }
-        for (int i = 0; i < array.length - 1; i++) {
-            if (array[i] <= array[i + 1]) {
+        if(array.length == 0) return true;
+
+        for(int i = 1; i < array.length; i++){
+            if (array[i] >= array[i - 1]) {
                 return false;
             }
         }
@@ -175,32 +165,19 @@ public class FirstSteps {
     }
 
     public int max(int[][] matrix){
-        if(matrix == null){
-            throw new IllegalArgumentException("Передан null вместо массива.");
-        }
-
-        if (matrix.length == 0 || matrix[0].length == 0) return Integer.MIN_VALUE;
-
         int max = Integer.MIN_VALUE;
-        for (int[] row : matrix) {
-            int rowMax = max(row);
-            if (rowMax > max) {
-                max = rowMax;
+        for(int[] array : matrix) {
+            for(int num : array) {
+                if(num > max) max = num;
             }
         }
         return max;
     }
 
     public int diagonalMax(int[][] matrix){
-        if(matrix == null){
-            throw new IllegalArgumentException("Передан null вместо массива.");
-        }
-
-        if(matrix.length == 0 || matrix[0].length == 0) return Integer.MIN_VALUE;
-
         int max = Integer.MIN_VALUE;
         for (int i = 0; i < matrix.length; i++) {
-            if (matrix[i][i] > max) {
+            if (max < matrix[i][i]) {
                 max = matrix[i][i];
             }
         }
@@ -208,14 +185,8 @@ public class FirstSteps {
     }
 
     public boolean isSortedDescendant(int[][] matrix){
-        if(matrix == null){
-            throw new IllegalArgumentException("Передан null вместо массива.");
-        }
-
-        for (int[] i : matrix){
-            if (!isSortedDescendant(i)) {
-                return false;
-            }
+        for (int[] i : matrix) {
+            if (!isSortedDescendant(i)) return false;
         }
         return true;
     }
